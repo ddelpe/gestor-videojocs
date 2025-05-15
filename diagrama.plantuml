@@ -1,0 +1,68 @@
+@startuml
+' Classes del Backend
+class Videojoc {
+  - id: String
+  - titol: String
+  - genere: String
+  - plataforma: String
+  - any: Number
+  - descripcio: String
+}
+
+class VideojocController {
+  + getAll(): Array<Videojoc>
+  + getById(id: String): Videojoc
+  + create(videojoc: Videojoc): Videojoc
+  + update(id: String, videojoc: Videojoc): Videojoc
+  + delete(id: String): void
+}
+
+class ApiRoutes {
+  + GET /videojocs
+  + GET /videojocs/:id
+  + POST /videojocs
+  + PUT /videojocs/:id
+  + DELETE /videojocs/:id
+}
+
+class MongoDB {
+  - uri: String
+  + connect(): void
+}
+
+' Classes del Frontend
+class VideojocModel {
+  - videojocs: Array<Videojoc>
+  + fetchVideojocs(): Array<Videojoc>
+  + afegirVideojoc(videojoc: Videojoc): Videojoc
+  + actualitzarVideojoc(id: String, videojoc: Videojoc): Videojoc
+  + eliminarVideojoc(id: String): void
+}
+
+class VideojocViewModel {
+  - model: VideojocModel
+  - videojocActual: Videojoc
+  - isEditing: Boolean
+  + carregarVideojocs(): void
+  + guardarVideojoc(): void
+  + editarVideojoc(videojoc: Videojoc): void
+  + eliminarVideojoc(id: String): void
+  + resetFormulari(): void
+}
+
+class VueComponent {
+  - viewModel: VideojocViewModel
+  + guardarVideojoc(): void
+  + editarVideojoc(videojoc: Videojoc): void
+  + eliminarVideojoc(id: String): void
+}
+
+' Relacions
+VideojocController --> Videojoc : "utilitza"
+ApiRoutes --> VideojocController : "crida"
+MongoDB --> Videojoc : "persisteix"
+VideojocModel --> ApiRoutes : "crida HTTP"
+VideojocViewModel o--> VideojocModel : "conté"
+VueComponent o--> VideojocViewModel : "conté"
+
+@enduml

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gestor de Videojocs</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Gestor de Videojocs</h1>
+  <div id="app">
+    <ul>
+      <li v-for="videojoc in videojocs" :key="videojoc._id">
+        {{ videojoc.titol }} - {{ videojoc.genere }}
+        <button @click="editarVideojoc(videojoc)">Editar</button>
+        <button @click="eliminarVideojoc(videojoc._id)">Eliminar</button>
+      </li>
+    </ul>
+    <form @submit.prevent="guardarVideojoc">
+      <input v-model="videojocActual.titol" placeholder="Títol" required>
+      <input v-model="videojocActual.genere" placeholder="Gènere" required>
+      <input v-model="videojocActual.plataforma" placeholder="Plataforma" required>
+      <input v-model="videojocActual.any" type="number" placeholder="Any" required>
+      <textarea v-model="videojocActual.descripcio" placeholder="Descripció"></textarea>
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="js/model.js"></script>
+  <script src="js/viewmodel.js"></script>
+  <script src="js/view.js"></script>
+</body>
+</html>
