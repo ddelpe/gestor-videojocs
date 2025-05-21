@@ -1,0 +1,444 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f3460;
+  padding: 15px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.navbar h1 {
+  color: #00ddeb;
+  font-size: 1.8em;
+  text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-links button {
+  background-color: #00ddeb;
+  color: #1a1a2e;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-links button:hover {
+  background-color: #00b8c4;
+  transform: translateY(-2px);
+}
+
+.nav-links span {
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+/* Mensaje de error */
+.error {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #16213e;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  color: #00ddeb;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Formulario */
+.form-container, .modal-content form {
+  background-color: #16213e;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #00ddeb;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0f3460;
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a0a0c0;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+button {
+  background-color: #00ddeb;
+  color: #1a1a2e;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #00b8c4;
+  transform: translateY(-2px);
+}
+
+button[type="button"] {
+  background-color: #e94560;
+}
+
+button[type="button"]:hover {
+  background-color: #d32f4b;
+}
+
+/* Lista de videojuegos */
+.list-container {
+  background-color: #16213e;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.videojocs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.videojoc-card {
+  background-color: #0f3460;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.videojoc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 221, 235, 0.2);
+}
+
+.videojoc-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.videojoc-card h3 {
+  font-size: 1.4em;
+  color: #00ddeb;
+  margin: 15px;
+}
+
+.videojoc-card p {
+  font-size: 0.95em;
+  color: #b0b0d0;
+  margin: 0 15px 15px;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.actions button {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.actions button:last-child {
+  background-color: #e94560;
+}
+
+.actions button:last-child:hover {
+  background-color: #d32f4b;
+}
+
+/* Imagen de respaldo */
+img.error {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e0e0e0;
+  font-size: 1em;
+  text-align: center;
+}
+
+/* Mensaje de bienvenida */
+.welcome {
+  text-align: center;
+  padding: 50px;
+  background-color: #16213e;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.welcome h2 {
+  color: #00ddeb;
+  margin-bottom: 20px;
+}
+
+.welcome p {
+  color: #b0b0d0;
+  font-size: 1.1em;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links button {
+    width: 100%;
+  }
+
+  .videojocs-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .form-group input,
+  .form-group textarea {
+    font-size: 14px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.carousel-item {
+  position: relative;
+  flex: 0 0 auto;
+  width: 450px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carousel-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+}
+
+.carousel-item:hover .carousel-image {
+  transform: scale(1.05);
+  opacity: 0.8;
+  filter: brightness(1.1);
+}
+
+.game-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+  padding: 15px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.carousel-item:hover .game-overlay {
+  opacity: 1;
+}
+
+.game-overlay h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(0, 221, 235, 0.7);
+}
+
+.game-overlay p {
+  font-size: 1em;
+  line-height: 1.4;
+  color: #d0d0ff;
+}
+
+/* Estilo del scrollbar */
+.carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00ddeb, #00b8c4);
+  border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00b8c4, #00ddeb);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+
+  .carousel-image {
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    height: 150px;
+  }
+
+  .game-overlay h3 {
+    font-size: 1.2em;
+  }
+
+  .game-overlay p {
+    font-size: 0.9em;
+  }
+}
+.welcome .carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+  border: 2px solid #00ddeb; /* Added a subtle cyan border for visual pop */
+}
+
+.welcome .carousel-item:hover .carousel-image {
+  transform: scale(1.1); /* Slightly increased scale for a more noticeable zoom */
+  opacity: 0.85; /* Slightly higher opacity for better visibility */
+  filter: brightness(1.15) saturate(1.2); /* Enhanced brightness and saturation */
+}
