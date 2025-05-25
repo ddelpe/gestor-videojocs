@@ -39,7 +39,7 @@ const app = new Vue({
     async login() {
       try {
         console.log('Intentando iniciar sesión con:', this.loginData);
-        const response = await fetch('http://localhost:3000/api/usuarios/login', {
+        const response = await fetch('http://localhost:3005/api/usuarios/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.loginData)
@@ -63,7 +63,7 @@ const app = new Vue({
     async register() {
       try {
         console.log('Registrando usuario:', this.registerData);
-        const response = await fetch('http://localhost:3000/api/usuarios/registrar', {
+        const response = await fetch('http://localhost:3005/api/usuarios/registrar', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.registerData)
@@ -95,7 +95,7 @@ const app = new Vue({
       }
       try {
         console.log('Enviando solicitud a /api/videojocs con token:', this.user.token);
-        const response = await fetch('http://localhost:3000/api/videojocs', {
+        const response = await fetch('http://localhost:3005/api/videojocs', {
           headers: { 'Authorization': `Bearer ${this.user.token}` }
         });
         console.log('Respuesta de /api/videojocs:', response.status, response.statusText);
@@ -126,8 +126,8 @@ const app = new Vue({
         };
         const method = this.isEditing ? 'PUT' : 'POST';
         const url = this.isEditing
-          ? `http://localhost:3000/api/videojocs/${this.videojocActual._id}`
-          : 'http://localhost:3000/api/videojocs';
+          ? `http://localhost:3005/api/videojocs/${this.videojocActual._id}`
+          : 'http://localhost:3005/api/videojocs';
         const response = await fetch(url, {
           method,
           headers: {
@@ -159,7 +159,7 @@ const app = new Vue({
       if (!this.isAdmin) return;
       if (!confirm('¿Seguro que quieres eliminar este videojuego?')) return;
       try {
-        const response = await fetch(`http://localhost:3000/api/videojocs/${id}`, {
+        const response = await fetch(`http://localhost:3005/api/videojocs/${id}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${this.user.token}` }
         });
